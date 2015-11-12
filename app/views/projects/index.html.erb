@@ -1,0 +1,7 @@
+<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe impedit vel sapiente quos odit, laboriosam in nam illum explicabo dolorum dignissimos officia, quas placeat eligendi voluptatem nihil voluptas. Atque, iure.</h2>
+
+<% @projects.each do |project| %>
+	<%= link_to project.title, project %> <br>
+<%end%>
+
+<%= link_to "nuevo proyecto", new_project_path %>
