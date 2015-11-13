@@ -2,3 +2,11 @@
 	<h1><%= @project.title %></h1>
 	<p><%= @project.description %></p>
 </section>
+
+<%= link_to 'Nueva Clave', new_project_key_path(@project) %>
+
+<ul>
+	<% @project.keys.each do |key| %>
+	  <li><%= link_to key.title, [@project,key] %></li>
+	<%end%>
+</ul>
