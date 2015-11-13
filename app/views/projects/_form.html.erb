@@ -1,14 +1,22 @@
-<ul>
   <% @project.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
+    <section class="alert alert-info">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<%= msg %>
+	</section>
   <% end %>
-</ul>
-<%= form_for @project do |f|%>
-  <%= f.label :title, 'Titulo' %>
-  <%= f.text_field :title %>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-
-  <%= f.submit %>
+<section class="panel-body">
+  <%= form_for @project do |f|%>
+  <section class="form-group">
+    <%= f.label :title, 'Titulo' %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </section>
+  <section class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description , size: "0x5", class: 'form-control' %>
+  </section>
+   
+  <%= f.submit 'Enviar', class: 'btn btn-danger' %>
 <%end%>
+</section>
+

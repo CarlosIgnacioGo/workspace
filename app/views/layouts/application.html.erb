@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
+  <title>Key Master</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<nav class="navbar navbar-default cotiner-fluid">
+		<section class="container">
+			<%= link_to 'Key Master', projects_path, class: 'navbar-brand' %>
+			<section class="nav navbar-nav navbar-right">
+				<%= link_to "Nuevo Proyecto", new_project_path, class: 'btn btn-success navbar-btn' %>
+			</section>
+		</section>
+	</nav>
+<section class="container">
+  <% flash.each do |key, value| %>
+	<section class="alert alert-info">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<%= value%>
+	</section>
+  <%end%>
 
-<% flash.each do |key, value| %>
-	<p><%= value %></p>
-<%end%>
-
-<%= yield %>
+  <%= yield %>
+</section>
 
 </body>
 </html>

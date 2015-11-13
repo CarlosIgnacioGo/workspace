@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :destroy, :edit, :update]
 
   def index
@@ -33,8 +33,13 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project.update(project_params)
-    redirect_to @project
+    if @project.update(project_params)
+      flash[:notice] = "Proyecto editado correctamente"
+      redirect_to @project
+    else
+      flash[:alert] = "algo exploto en la edición"
+      render 'edit'
+    end   
   end
 
   private
