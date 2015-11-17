@@ -1,3 +1,10 @@
+<% @key.errors.full_messages.each do |msg| %>
+<section class="alert alert-info">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<%= msg %>
+	</section>
+<%end%>
+
 <section class="panel-body">
 	<%= form_for [@project, @key] do |f|%>
 		<section class="form-group">

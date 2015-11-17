@@ -8,8 +8,14 @@ class KeysController < ApplicationController
 
 	def create
 	  @key = @project.keys.build(key_params)
-	  @key.save
-	  redirect_to @project
+
+	  if @key.save
+	  	flash[:notice] = "La clave se guardo correctamente"
+	  	redirect_to @project
+	  else
+	  	flash[:alert] = "La clave no se guardo correctamente"
+	  	render 'new'
+	  end 
 	end
 
 	def show
@@ -20,12 +26,18 @@ class KeysController < ApplicationController
 	end
 
 	def update
-		@key.update(key_params)
-		redirect_to [@project, @key]
+	  if @key.update(key_params)
+	  	flash[:notice] = "Clave editado correctamente"
+	  	redirect_to [@project, @key]
+	  else
+	  	flash[:alert] = "Clave editado correctamente"
+      	render 'edit'
+	  end
 	end
 
 	def destroy
 		@key.destroy
+		flash[:notice] = "La clave a sido borrado"
 		redirect_to @project
 	end
 

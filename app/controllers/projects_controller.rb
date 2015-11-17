@@ -1,4 +1,4 @@
- class ProjectsController < ApplicationController
+class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :destroy, :edit, :update]
 
   def index
@@ -10,14 +10,15 @@
   end
 
   def create
-	@project = Project.new(project_params)
-	
-	if @project.save
-		flash[:notice] = "Se guardo la raja el proyecto"
-		redirect_to @project
-	else
-		render 'new'
-	end
+  	@project = Project.new(project_params)
+  	
+  	if @project.save
+  		flash[:notice] = "El projecto se guardo correctamente"
+  		redirect_to @project
+  	else
+      flash[:alert] = "El projecto no se guardo correctamente"
+  		render 'new'
+  	end
   end
 
   def show
@@ -34,10 +35,10 @@
 
   def update
     if @project.update(project_params)
-      flash[:notice] = "Proyecto editado correctamente"
+      flash[:notice] = "Projecto editado correctamente"
       redirect_to @project
     else
-      flash[:alert] = "algo exploto en la edición"
+      flash[:alert] = "El projecto no se pudo editar"
       render 'edit'
     end   
   end
