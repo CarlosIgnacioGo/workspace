@@ -7,12 +7,16 @@
 
 <section class="row">
 	<% @project.keys.each do |key| %>
-		<article class="col-md-6 col-keys">
+		<article class="col-md-6 padding-key">
+			<section class="container-key">
 				<%= link_to key.title, [@project,key] %>
 				<span class="pull-right">
 					<%= link_to '', edit_project_key_path(@project, key), class: 'btn btn-xs btn-info glyphicon glyphicon-pencil' %>
 					<%= link_to '', [@project,key], method: :delete, data: { confirm: 'Estas seguro?'}, class: 'btn btn-xs btn-info glyphicon glyphicon-trash' %>
 				</span>
+			</section>
 		</article>
 	<%end%>
 </section>
+
+

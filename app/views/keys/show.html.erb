@@ -1,3 +1,22 @@
 
-<h2><%= @key.title %></h2>
-<p><%= @key.link%></p>
+<section class="container">
+	
+</section>
+<div class="list-group">
+	<ul>
+		<li class="list-group-item">
+	  		<h4 class="list-group-item-heading"><%= @key.title %></h4>
+    		<p class="list-group-item-text"><%= @key.link %></p>
+	  	</li>
+
+	  	<li class="list-group-item">
+	  		<h4 class="list-group-item-heading">Usuario</h4>
+    		<p class="list-group-item-text"><%= @key.user %></p>
+	  	</li>
+
+	  	<li class="list-group-item">
+	  		<h4 class="list-group-item-heading">Clave</h4>
+    		<p class="list-group-item-text"><%= @key.password %></p>
+	  	</li>
+	</ul>
+</div>
