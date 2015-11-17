@@ -12,6 +12,10 @@
 			<%= link_to 'Key Master', projects_path, class: 'navbar-brand' %>
 			<section class="nav navbar-nav navbar-right">
 				<%= link_to "Nuevo Proyecto", new_project_path, class: 'btn btn-success navbar-btn' %>
+				
+				<% if current_page?(controller: 'projects', action: 'show', id: 'params[:id]') %>
+					<p>Quiero verme!!! :c</p>
+				<%end%>
 			</section>
 		</section>
 	</nav>
@@ -19,7 +23,7 @@
   <% flash.each do |key, value| %>
 	<section class="alert alert-info">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		<%= value%>
+		<%= value %>
 	</section>
   <%end%>
 

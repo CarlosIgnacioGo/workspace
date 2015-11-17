@@ -15,6 +15,20 @@ class KeysController < ApplicationController
 	def show
 	end
 
+	def edit
+		
+	end
+
+	def update
+		@key.update(key_params)
+		redirect_to [@project, @key]
+	end
+
+	def destroy
+		@key.destroy
+		redirect_to @project
+	end
+
 	private
 	def set_project
 	  @project = Project.find(params[:project_id])

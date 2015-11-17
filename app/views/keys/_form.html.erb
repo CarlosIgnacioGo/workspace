@@ -1,16 +1,25 @@
-<%= form_for [@project, @key] do |f|%>
+<section class="panel-body">
+	<%= form_for [@project, @key] do |f|%>
+		<section class="form-group">
+			<%= f.label :title, 'Titulo' %>
+			<%= f.text_field :title, class: 'form-control'  %>
+		</section>
+		
+		<section class="form-group">
+			<%= f.label :link, 'Link' %>
+			<%= f.text_field :link, class: 'form-control'  %>
+		</section>
 
-<%= f.label :title, 'Titulo' %>
-<%= f.text_field :title %>
+		<section class="form-group">
+			<%= f.label :user, 'Usuario' %>
+			<%= f.text_field :user, class: 'form-control'  %>
+		</section>
 
-<%= f.label :link, 'Link' %>
-<%= f.text_field :link %>
+		<section class="form-group">
+			<%= f.label :password, 'Contraseña' %>
+			<%= f.text_field :password, class: 'form-control'  %>
+		</section>
 
-<%= f.label :user, 'Usuario' %>
-<%= f.text_field :user %>
-
-<%= f.label :password, 'Contraseña' %>
-<%= f.text_field :password %>
-
-<%= f.submit %>
-<%end%>
+		<%= f.submit 'Listo!', class: 'btn btn-danger' %>
+	<%end%>
+</section>

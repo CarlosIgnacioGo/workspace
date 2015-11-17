@@ -5,8 +5,14 @@
 
 <%= link_to 'Nueva Clave', new_project_key_path(@project) %>
 
-<ul>
+<section class="row">
 	<% @project.keys.each do |key| %>
-	  <li><%= link_to key.title, [@project,key] %></li>
+		<article class="col-md-6 col-keys">
+				<%= link_to key.title, [@project,key] %>
+				<span class="pull-right">
+					<%= link_to '', edit_project_key_path(@project, key), class: 'btn btn-xs btn-info glyphicon glyphicon-pencil' %>
+					<%= link_to '', [@project,key], method: :delete, data: { confirm: 'Estas seguro?'}, class: 'btn btn-xs btn-info glyphicon glyphicon-trash' %>
+				</span>
+		</article>
 	<%end%>
-</ul>
+</section>
